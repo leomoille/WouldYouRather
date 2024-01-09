@@ -37,6 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     #[Assert\NotCompromisedPassword]
+    #[Assert\Length(min: 8)]
     private ?string $password = null;
 
     public function getId(): ?int
@@ -75,7 +76,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string)$this->username;
+        return (string) $this->username;
     }
 
     /**
