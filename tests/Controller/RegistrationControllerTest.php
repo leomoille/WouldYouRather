@@ -25,7 +25,7 @@ class RegistrationControllerTest extends WebTestCase
             ->click('S\'inscrire')
             ->interceptRedirects()
             ->followRedirects()
-            ->assertOn('/question')
+            ->assertOn('/question/play')
             ->assertSuccessful();
 
         $userRepository = static::getContainer()->get(UserRepository::class);

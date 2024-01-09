@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion - Would You Rather ?{% endblock %}
+
+{% block body %}
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <form method="post" style="min-width: 75vw;" name="login_form">
+            <h1>Connexion !</h1>
+            <p>Vous n'avez pas encore de compte ? <a href="{{ path('app_register') }}">Inscription !</a></p>
+            <hr>
+
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            <div class="form-floating mb-2">
+                <input type="text" value="{{ last_username }}" placeholder="Pseudo" name="username" id="inputUsername" class="form-control"
+                       autocomplete="username" required autofocus>
+                <label for="inputUsername">Pseudo</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input type="password" placeholder="Mot de passe" name="password" id="inputPassword" class="form-control"
+                       autocomplete="current-password" required>
+                <label for="inputPassword">Mot de passe</label>
+            </div>
+
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+
+            <button class="btn btn-primary d-block w-100" type="submit">
+                Se connecter
+            </button>
+        </form>
+    </div>
+{% endblock %}
