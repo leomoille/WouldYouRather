@@ -14,8 +14,8 @@ class RegistrationControllerTest extends WebTestCase
 
     public function testRegistration(): void
     {
-        $uniqueUsername = 'TestUser'.rand(1, 5);
-        $uniqueEmail = 'test'.rand(1, 5).'@example.com';
+        $uniqueUsername = 'TestUser' . rand(1, 5);
+        $uniqueEmail    = 'test' . rand(1, 5) . '@example.com';
 
         $this->browser()
             ->visit('/register')
@@ -29,7 +29,7 @@ class RegistrationControllerTest extends WebTestCase
             ->assertSuccessful();
 
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $user = $userRepository->findBy(['email' => $uniqueEmail]);
+        $user           = $userRepository->findBy(['email' => $uniqueEmail]);
         $this->assertNotNull($user, 'L\'utilisateur n\'a pas été créé.');
     }
 }

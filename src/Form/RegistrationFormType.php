@@ -23,7 +23,7 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('username', TextType::class, [
                 'label' => 'Pseudo',
-                'attr' => [
+                'attr'  => [
                     'placeholder' => 'Pseudo',
                 ],
                 'row_attr' => [
@@ -39,16 +39,16 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Vous devez choisir un pseudo',
                     ]),
                     new Length([
-                        'min' => 4,
+                        'min'        => 4,
                         'minMessage' => 'Votre pseudo ne peut pas faire moins de {{ limit }} caractères',
-                        'max' => 16,
+                        'max'        => 16,
                         'maxMessage' => 'Votre pseudo ne peut pas faire plus de {{ limit }} caractères',
                     ]),
                 ],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email',
-                'attr' => [
+                'attr'  => [
                     'placeholder' => 'Email',
                 ],
                 'row_attr' => [
@@ -65,10 +65,10 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('plainPassword', PasswordType::class, [
                 'mapped' => false,
-                'label' => 'Mot de passe',
-                'attr' => [
+                'label'  => 'Mot de passe',
+                'attr'   => [
                     'autocomplete' => 'new-password',
-                    'placeholder' => 'Mot de passe',
+                    'placeholder'  => 'Mot de passe',
                 ],
                 'row_attr' => [
                     'class' => 'form-floating mb-2',
@@ -78,7 +78,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Please enter a password',
                     ]),
                     new Length([
-                        'min' => 8,
+                        'min'        => 8,
                         'minMessage' => 'Your password should be at least {{ limit }} characters',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,

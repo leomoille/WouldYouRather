@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Repository;
+namespace App\Tests\Unit\Repository;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManager;
@@ -44,7 +44,7 @@ class UserRepositoryTest extends KernelTestCase
 
         // Rechercher l'utilisateur dans la base de données
         $userRepository = $this->entityManager->getRepository(User::class);
-        $foundUser = $userRepository->findOneBy(['username' => 'TestUser']);
+        $foundUser      = $userRepository->findOneBy(['username' => 'TestUser']);
 
         // Assertions
         $this->assertNotNull($foundUser);

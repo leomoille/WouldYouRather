@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Entity;
+namespace App\Tests\Unit\Entity;
 
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -14,7 +14,7 @@ class UserTest extends KernelTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->user = new User();
+        $this->user      = new User();
         $this->validator = static::getContainer()->get(ValidatorInterface::class);
     }
 
